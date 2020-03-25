@@ -1,0 +1,29 @@
+version: "3.7"
+
+volumes:
+    DATABASE:
+
+networks:
+    totvs_interface:
+
+services:
+    # Determinando um nome para o serviço, ou seja, o nome do meu container
+    mssql-protheus:
+        container_name: mssql-protheus
+        # A partir de qual imagem
+        image: "mssql_protheus/img:1.0"
+        # Volume para os dados persistidos
+        volumes: 
+            - DATABASE:/var/opt/mssql
+        # Rede customizada criada
+        networks:
+            - totvs_interface 
+        # Variaveis de ambiente
+        environment:
+            - ACCEPT_EULA=Y
+            - MSSQL_SA_PASSWORD=TOTVS@protheus1234
+            - MSSQL_PID=Developer
+            - bind-address=0.0.0.0
+        # Portas expostas
+        ports: 
+            - "1433:1433"
