@@ -1,5 +1,0 @@
-** dbaccess **
-/dbaccess/ -> nucleo
-
-** license **
-/totvs/totvslicense -> license server
