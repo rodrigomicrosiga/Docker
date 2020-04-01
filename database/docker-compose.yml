@@ -1,7 +1,7 @@
 version: "3.7"
 
 volumes:
-    DATABASE:
+    database:
 
 networks:
     totvs_interface:
@@ -14,7 +14,7 @@ services:
         image: "mssql_protheus/img:1.0"
         # Volume para os dados persistidos
         volumes: 
-            - DATABASE:/var/opt/mssql
+            - database:/var/opt/mssql
         # Rede customizada criada
         networks:
             - totvs_interface 
